@@ -150,7 +150,7 @@ def home():
 
     if number is None or number.strip() == "":
         null_error = {
-            "number" : "null",
+            "number" : "alphabet",
             "error" : True
         }
 
