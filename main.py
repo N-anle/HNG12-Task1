@@ -123,7 +123,24 @@ def get_fun_fact(number):
         return "Fun fact unavailable"
 
 
+@app.route("/") 
 
+def home_error():
+    home_error = {
+        "detail" : "not found"
+    }
+
+    return home_error
+
+@app.route("/api")
+
+def api_route():
+    home_error = {
+        "detail" : "not found"
+    }
+
+    return home_error
+    
 
 @app.route("/api/classify-number")
 
