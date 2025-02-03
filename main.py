@@ -71,7 +71,7 @@ def digit_sum(number):
     
 
 def number_properties(number):
-    original_number = int(number)
+    original_number = abs(int(number))
 
     
 
