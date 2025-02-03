@@ -5,6 +5,7 @@ import requests
 
 app = Flask(__name__)
 app.json.sort_keys = False
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False 
 
 
 CORS(app)
@@ -129,6 +130,14 @@ def get_fun_fact(number):
 def home():
     
     number = request.args.get("number")
+
+    if number is None:
+        null_error = {
+            "number" : "alphabet",
+            "error" : "true"
+        }
+
+        return jsonify (null_error), 400
 
     try:
         int(number)
