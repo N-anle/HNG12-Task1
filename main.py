@@ -133,7 +133,7 @@ def home():
 
     if number is None:
         null_error = {
-            "number" : "alphabet",
+            "number" : "null",
             "error" : "true"
         }
 
