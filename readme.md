@@ -13,7 +13,7 @@ A Flask-based API to classify numbers with properties such as prime, perfect, Ar
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/yourusername/number-classification-api.git
+git clone https://github.com/N-anle/HNG12-task1
 cd number-classification-api
 ```
 
@@ -59,14 +59,6 @@ http://localhost:5000/api/classify-number?number=28
 ```
 
 ### **Error Responses:**
-- **For Negative Numbers:**
-```json
-{
-  "number": "-5",
-  "error": true,
-  "message": "Negative numbers are not supported"
-}
-```
 - **For Invalid Inputs:**
 ```json
 {
