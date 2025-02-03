@@ -30,7 +30,7 @@ pip install flask flask-cors requests
 
 4. **Run the application:**
 ```bash
-python app.py
+python main.py
 ```
 
 ## 🧪 API Usage
