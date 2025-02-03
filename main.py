@@ -51,43 +51,55 @@ def is_perfect(number):
 
 def digit_sum(number):
 
-    digit_sum = 0 
+    digit_sum = 0
     number_int = int(number)
 
-    while number_int > 0:
-        digit = number_int % 10
-        digit_sum += digit
-        number_int //= 10
+    
+    if number_int != 0:
+        number_int = abs(number_int)
+        while number_int > 0:
+            digit = number_int % 10
+            digit_sum += digit
+            number_int //= 10
+
+    
+    if int(number) < 0:
+        digit_sum = -digit_sum
 
     return digit_sum
 
 def number_properties(number):
     original_number = int(number)
 
-
+    
 
     properties_list = []
 
     #check for armstrong number
-    temp_number = original_number
-    digits = []
-    cubed = []
-    cubed_sum = 0
+    if original_number > 0:
+        temp_number = original_number
+        digits = []
+        cubed = []
+        cubed_sum = 0
 
-    while temp_number > 0:
-        digit = temp_number % 10
-        digits.append(digit) 
-        temp_number //= 10
+        while temp_number > 0:
+            digit = temp_number % 10
+            digits.append(digit) 
+            temp_number //= 10
+            
+        for digit in digits:
+            cubed.append((digit ** 3))
+
+        cubed_sum = sum(cubed)
         
-    for digit in digits:
-        cubed.append((digit ** 3))
-
-    cubed_sum = sum(cubed)
-    
-    if cubed_sum == original_number:
-        properties_list.append("Armstrong")
+        if cubed_sum == original_number:
+            properties_list.append("Armstrong")
 
     #check for even and odd
+    if original_number < 0:
+        original_number = abs(original_number)
+    
+
     if original_number % 2 == 0:
         properties_list.append("Even")
     else:
@@ -98,13 +110,13 @@ def number_properties(number):
         
 
 def get_fun_fact(number):
-
     try:
         response = requests.get(f"http://numbersapi.com/{number}/math", timeout=20)
         response.raise_for_status()
         return response.text.strip()
     except requests.RequestException:
-        return "Fun fact unavailable."
+        return "Fun fact unavailable"
+
 
 
 
@@ -117,32 +129,33 @@ def home():
     try:
         int(number)
 
-        if int(number) < 0:
-            negative_error = {
-                "number" : number,
-                "error" : True,
-                "message" : "Negative numbers are not supported"
-            }
-            return jsonify(negative_error), 400
-        else: 
+        if int(number) == 0:
             digit_sum_result = digit_sum(number)
-            property_list = number_properties(number)
+            property_list = []
+            fun_fact = get_fun_fact(number)
             prime_number = is_prime(number)
             perfect_number = is_perfect(number)
+        else:
+
+            digit_sum_result = digit_sum(number)
+            property_list = number_properties(number)
             fun_fact = get_fun_fact(number)
+            prime_number = is_prime(number)
+            perfect_number = is_perfect(number)
+            
             
         
        
-            response = {
-                "number" : number,
-                "is_prime" : prime_number,
-                "is_perfect": perfect_number,
-                "digit_sum" : digit_sum_result,
-                "properties" : property_list,
-                "fun_fact" : fun_fact
-            }
+        response = {
+            "number" : number,
+            "is_prime" : prime_number,
+            "is_perfect": perfect_number,
+            "digit_sum" : digit_sum_result,
+            "properties" : property_list,
+            "fun_fact" : fun_fact
+        }
 
-            return jsonify(response), 200
+        return jsonify(response), 200
 
     except ValueError:
         val_error = {
