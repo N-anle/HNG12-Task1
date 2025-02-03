@@ -130,7 +130,7 @@ def home_error():
         "detail" : "not found"
     }
 
-    return home_error
+    return jsonify(home_error), 400
 
 @app.route("/api")
 
@@ -139,7 +139,7 @@ def api_route():
         "detail" : "not found"
     }
 
-    return home_error
+    return jsonify(home_error), 400
     
 
 @app.route("/api/classify-number")
