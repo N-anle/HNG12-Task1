@@ -173,8 +173,8 @@ def home():
             "number" : number,
             "is_prime" : prime_number,
             "is_perfect": perfect_number,
-            "digit_sum" : digit_sum_result,
             "properties" : property_list,
+            "digit_sum" : digit_sum_result,
             "fun_fact" : fun_fact
         }
 
