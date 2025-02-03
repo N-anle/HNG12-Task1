@@ -65,7 +65,7 @@ def digit_sum(number):
 
     
     if int(number) < 0:
-       digit_sum = digit_sum
+       digit_sum = -digit_sum
 
     return digit_sum
     
