@@ -148,10 +148,10 @@ def home():
     
     number = request.args.get("number")
 
-    if number is None:
+    if number is None or number.strip() == "":
         null_error = {
             "number" : "null",
-            "error" : "true"
+            "error" : True
         }
 
         return jsonify (null_error), 400
