@@ -64,9 +64,10 @@ def digit_sum(number):
 
     
     if int(number) < 0:
-        digit_sum = -digit_sum
+       digit_sum = digit_sum
 
     return digit_sum
+    
 
 def number_properties(number):
     original_number = int(number)
@@ -74,6 +75,9 @@ def number_properties(number):
     
 
     properties_list = []
+
+    if 2 <= original_number <= 9:
+        properties_list.append("armstrong")
 
     #check for armstrong number
     if original_number > 0:
