@@ -93,7 +93,7 @@ def number_properties(number):
         cubed_sum = sum(cubed)
         
         if cubed_sum == original_number:
-            properties_list.append("Armstrong")
+            properties_list.append("armstrong")
 
     #check for even and odd
     if original_number < 0:
@@ -101,9 +101,9 @@ def number_properties(number):
     
 
     if original_number % 2 == 0:
-        properties_list.append("Even")
+        properties_list.append("even")
     else:
-        properties_list.append("Odd")
+        properties_list.append("odd")
 
     return properties_list
 
@@ -129,19 +129,12 @@ def home():
     try:
         int(number)
 
-        if int(number) == 0:
-            digit_sum_result = digit_sum(number)
-            property_list = []
-            fun_fact = get_fun_fact(number)
-            prime_number = is_prime(number)
-            perfect_number = is_perfect(number)
-        else:
-
-            digit_sum_result = digit_sum(number)
-            property_list = number_properties(number)
-            fun_fact = get_fun_fact(number)
-            prime_number = is_prime(number)
-            perfect_number = is_perfect(number)
+        
+        digit_sum_result = digit_sum(number)
+        property_list = number_properties(number)
+        fun_fact = get_fun_fact(number)
+        prime_number = is_prime(number)
+        perfect_number = is_perfect(number)
             
             
         
