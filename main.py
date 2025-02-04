@@ -170,7 +170,7 @@ def home():
         
        
         response = {
-            "number" : number,
+            "number" : int(number),
             "is_prime" : prime_number,
             "is_perfect": perfect_number,
             "properties" : property_list,
